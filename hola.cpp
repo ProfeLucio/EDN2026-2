@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hola, Leydy Caicedo! Como Estas?\n");
+    printf("- Hola, Juan David! Como Estas?\n");
+    printf("- Muy bien profe Lucio. Y Usted?\n");
+    printf("- Allí mijo llevandola.\n");    
     return 0;
 }
