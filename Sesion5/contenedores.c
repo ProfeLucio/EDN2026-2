@@ -15,7 +15,7 @@ void insertar_contenedor();
 void mostrar_manifiesto();
 void verificar_alertas_peso();
 void eliminar_contenedor();
-
+void alerta(contenedor *aux2);
 void main(){
     int opcion;
     do {        
@@ -41,6 +41,7 @@ void insertar_contenedor(){
     printf("Digite el peso de la carga (Toneladas): ");
     scanf("%f", &nuevo->carga);
     nuevo->masa = nuevo->tara + nuevo->carga;
+    alerta(nuevo);
     nuevo->sig = NULL; 
 
     if(cab==NULL){
@@ -65,5 +66,19 @@ void mostrar_manifiesto(){
         contador= contador+1;
     }
 };
-void verificar_alertas_peso(){};
+void alerta(contenedor *aux2){
+     if(aux2->masa>32)
+        printf("ADVERTENCIA! El contenedor supera el límite de Masa Bruta, su masa es %.2f\n", aux2->masa);
+
+}
+void verificar_alertas_peso(){
+    aux = cab;
+    int contador = 1;
+    while (aux != NULL){
+        if(aux->masa>32)
+            printf("ADVERTENCIA! El contenedor %d supera el límite de Masa Bruta, su masa es %.2f", contador, aux->masa);
+        aux = aux->sig;
+        contador= contador+1;
+    }    
+};
 void eliminar_contenedor(){};
